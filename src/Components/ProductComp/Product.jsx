@@ -3,7 +3,7 @@ import {incrementAction, decrementAction} from "../Redux/Product/prod_action";
 import {useDispatch, useSelector} from "react-redux";
 
 const Product = () => {
-  let dispatch = useDispatch;
+  let dispatch = useDispatch();
   let product = useSelector((state) => {
     return state;
   });
@@ -16,24 +16,24 @@ const Product = () => {
   };
   return (
     <>
-      <div className='container'>
+      <div className='container w-50'>
         <div className='card'>
           <img src={product.img} alt='' />
           <div className='card-body align-item-center text-center'>
             <h3 className='card-title'>{product.product_name}</h3>
             <p className='card-text'>{product.description}</p>
-            <h6 className='card-text mt-2 mb-2'>{product.price}</h6>
-            <p>
+            <h5 className='card-text mt-5 mb-5'>$ {product.price}</h5>
+            <h5>
               <i
                 className='fa fa-minus-circle mr-2'
                 onClick={decrementHandler}
               ></i>
               {product.qty}
               <i
-                className='fa fa-plus-cirle ml-2'
+                className='fa fa-plus-circle ml-2'
                 onClick={incrementHandler}
               ></i>
-            </p>
+            </h5>
           </div>
         </div>
       </div>
